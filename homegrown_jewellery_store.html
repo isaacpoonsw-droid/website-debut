@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mara & Co. — Handmade Jewellery</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #F7F3EE;
+  --bg-warm: #FBF8F4;
+  --bg-dark: #2B2319;
+  --ink: #2B2319;
+  --ink-mid: #6B5E50;
+  --ink-soft: #A89880;
+  --terracotta: #C4623A;
+  --terracotta-light: #E8A585;
+  --terracotta-pale: #F5E0D6;
+  --sage: #7A8C6E;
+  --sage-pale: #E8EDE4;
+  --border: rgba(107,94,80,0.18);
+  --border-warm: rgba(196,98,58,0.25);
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.1rem 2.5rem;
+  background: var(--bg-warm);
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 100;
+}
+
+.nav-left { display: flex; align-items: center; gap: 2rem; }
+
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  text-decoration: none;
+  line-height: 1;
+}
+
+.nav-logo span { color: var(--terracotta); }
+
+.nav-links { display: flex; gap: 1.75rem; list-style: none; }
+.nav-links a {
+  font-size: 0.8rem;
+  color: var(--ink-mid);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--terracotta); }
+
+.nav-right { display: flex; align-items: center; gap: 1rem; }
+.nav-badge {
+  font-size: 0.68rem;
+  background: var(--terracotta-pale);
+  color: var(--terracotta);
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+  border: 1px solid var(--border-warm);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+}
+.nav-icon { background: none; border: none; cursor: pointer; color: var(--ink-mid); font-size: 1.1rem; transition: color 0.2s; }
+.nav-icon:hover { color: var(--terracotta); }
+
+/* HERO */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 88vh;
+}
+
+.hero-left {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 4rem 3.5rem 4rem 4rem;
+  position: relative;
+}
+
+.founder-note {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  background: var(--sage-pale);
+  border: 1px solid rgba(122,140,110,0.3);
+  border-radius: 6px;
+  padding: 0.45rem 0.9rem;
+  font-size: 0.72rem;
+  color: var(--sage);
+  font-weight: 400;
+  margin-bottom: 2rem;
+  width: fit-content;
+}
+
+.founder-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--sage); flex-shrink: 0; }
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 4.5vw, 4rem);
+  font-weight: 400;
+  line-height: 1.12;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.015em;
+}
+
+h1 em { font-style: italic; color: var(--terracotta); }
+
+.hero-desc {
+  font-size: 0.95rem;
+  line-height: 1.85;
+  color: var(--ink-mid);
+  max-width: 26rem;
+  margin-bottom: 2.5rem;
+}
+
+.hero-sig {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--terracotta);
+  margin-bottom: 2.5rem;
+  opacity: 0.85;
+}
+
+.hero-actions { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+
+.btn-main {
+  background: var(--terracotta);
+  color: #FBF8F4;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  padding: 0.85rem 2rem;
+  border: none; cursor: pointer; text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.25s, transform 0.15s;
+  display: inline-block;
+}
+.btn-main:hover { background: #A84E2A; transform: translateY(-1px); }
+
+.btn-outline {
+  font-size: 0.8rem;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1.5px solid var(--terracotta);
+  padding-bottom: 2px;
+  transition: color 0.2s;
+  letter-spacing: 0.03em;
+}
+.btn-outline:hover { color: var(--terracotta); }
+
+.hero-trust {
+  display: flex; align-items: center; gap: 1.5rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.trust-item {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.02em;
+}
+
+.trust-icon { font-size: 0.9rem; color: var(--terracotta); opacity: 0.7; }
+
+.hero-right {
+  position: relative;
+  background: var(--terracotta-pale);
+  overflow: hidden;
+  display: flex; align-items: stretch;
+}
+
+.hero-right img {
+  width: 100%; height: 100%; object-fit: cover;
+  mix-blend-mode: multiply;
+  opacity: 0.85;
+}
+
+.hero-sticker {
+  position: absolute;
+  bottom: 2.5rem; left: -1.5rem;
+  background: var(--bg-warm);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  min-width: 9rem;
+}
+
+.sticker-stars { color: var(--terracotta); font-size: 0.7rem; margin-bottom: 0.35rem; letter-spacing: 2px; }
+.sticker-text { font-size: 0.75rem; font-weight: 400; color: var(--ink); line-height: 1.4; }
+.sticker-sub { font-size: 0.65rem; color: var(--ink-soft); margin-top: 0.2rem; }
+
+.hero-snap {
+  position: absolute;
+  top: 2rem; right: 1.5rem;
+  background: var(--bg-dark);
+  border-radius: 8px;
+  padding: 0.85rem 1.1rem;
+  text-align: center;
+}
+.snap-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.65rem;
+  color: var(--terracotta-light);
+  line-height: 1;
+}
+.snap-label { font-size: 0.62rem; color: rgba(251,248,244,0.5); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.2rem; }
+
+/* FOUNDER STRIP */
+.founder-strip {
+  background: var(--bg-dark);
+  padding: 3rem 4rem;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 3rem;
+}
+
+.founder-photo {
+  width: 4.5rem; height: 4.5rem;
+  border-radius: 50%;
+  background: var(--terracotta-pale);
+  border: 2px solid var(--terracotta-light);
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--terracotta);
+}
+
+.founder-text {}
+
+.founder-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--terracotta-light);
+  opacity: 0.7;
+  margin-bottom: 0.5rem;
+}
+
+.founder-quote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: rgba(251,248,244,0.88);
+  line-height: 1.6;
+  max-width: 38rem;
+}
+
+.founder-name {
+  font-size: 0.75rem;
+  color: rgba(251,248,244,0.4);
+  margin-top: 0.75rem;
+}
+
+.founder-strip-cta {
+  background: transparent;
+  border: 1px solid rgba(196,98,58,0.4);
+  color: var(--terracotta-light);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer; border-radius: 4px;
+  transition: background 0.2s;
+  white-space: nowrap;
+  text-decoration: none;
+  display: inline-block;
+}
+.founder-strip-cta:hover { background: rgba(196,98,58,0.15); }
+
+/* PROCESS */
+.process { padding: 5.5rem 4rem; background: var(--bg-warm); }
+
+.section-eyebrow {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: 0.75rem;
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.section-eyebrow::after { content: ''; width: 2rem; height: 1px; background: var(--terracotta); opacity: 0.5; }
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+}
+.section-title em { font-style: italic; color: var(--terracotta); }
+
+.section-sub {
+  font-size: 0.88rem;
+  line-height: 1.85;
+  color: var(--ink-mid);
+  max-width: 30rem;
+  margin-bottom: 3rem;
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.process-step {
+  padding: 1.75rem 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  position: relative;
+}
+
+.step-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: var(--terracotta);
+  opacity: 0.18;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.step-icon { font-size: 1.4rem; margin-bottom: 0.75rem; }
+
+.step-title {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+.step-desc {
+  font-size: 0.78rem;
+  line-height: 1.75;
+  color: var(--ink-mid);
+}
+
+/* SHOP */
+.shop { padding: 5.5rem 4rem; }
+
+.shop-header {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  margin-bottom: 2.5rem;
+}
+
+.filter-pills { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 1.25rem; }
+
+.pill {
+  font-size: 0.72rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  color: var(--ink-mid);
+  cursor: pointer;
+  background: transparent;
+  transition: all 0.2s;
+  font-family: 'DM Sans', sans-serif;
+}
+.pill:hover, .pill.active { background: var(--terracotta); color: white; border-color: var(--terracotta); }
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+.product-card { cursor: pointer; }
+
+.product-img {
+  position: relative;
+  background: var(--terracotta-pale);
+  aspect-ratio: 1 / 1.1;
+  overflow: hidden;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.product-img img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-img img { transform: scale(1.04); }
+
+.product-badge {
+  position: absolute; top: 0.75rem; left: 0.75rem;
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.28rem 0.65rem;
+  border-radius: 4px;
+}
+.badge-new { background: var(--bg-dark); color: var(--terracotta-light); }
+.badge-love { background: var(--terracotta); color: white; }
+
+.product-wish {
+  position: absolute; top: 0.65rem; right: 0.65rem;
+  background: rgba(251,248,244,0.88);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 2rem; height: 2rem;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem; cursor: pointer; color: var(--ink-mid);
+  opacity: 0; transition: opacity 0.2s;
+}
+.product-card:hover .product-wish { opacity: 1; }
+
+.product-handmade {
+  font-size: 0.65rem;
+  color: var(--sage);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+  font-weight: 400;
+}
+
+.product-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 0.3rem;
+  line-height: 1.3;
+}
+
+.product-desc {
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+
+.product-footer {
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+.product-price {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.product-add {
+  font-size: 0.7rem;
+  color: var(--terracotta);
+  border: 1px solid var(--border-warm);
+  padding: 0.35rem 0.85rem;
+  border-radius: 4px;
+  cursor: pointer;
+  background: transparent;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.2s;
+}
+.product-add:hover { background: var(--terracotta); color: white; border-color: var(--terracotta); }
+
+/* BEHIND THE SCENES */
+.bts { padding: 5.5rem 4rem; background: var(--bg-warm); }
+
+.bts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.bts-photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+}
+
+.bts-photo {
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--terracotta-pale);
+}
+
+.bts-photo img {
+  width: 100%; display: block;
+  filter: sepia(10%);
+}
+
+.bts-photo:first-child { grid-column: 1 / 3; }
+
+.bts-caption {
+  font-size: 0.68rem;
+  color: var(--ink-soft);
+  font-style: italic;
+  margin-top: 0.75rem;
+  text-align: center;
+}
+
+.bts-content {}
+
+.values-list {
+  display: flex; flex-direction: column; gap: 1.25rem;
+  margin: 2.5rem 0;
+}
+
+.value-item {
+  display: flex; gap: 1rem; align-items: flex-start;
+  padding: 1.1rem 1.25rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.value-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 1px; }
+
+.value-title {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.2rem;
+}
+
+.value-desc {
+  font-size: 0.78rem;
+  color: var(--ink-mid);
+  line-height: 1.65;
+}
+
+/* TESTIMONIALS */
+.reviews { padding: 5.5rem 4rem; }
+
+.reviews-intro { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 2.5rem; }
+
+.reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+
+.review-card {
+  background: var(--bg-warm);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.75rem;
+}
+
+.review-stars { color: var(--terracotta); font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 1rem; }
+
+.review-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--ink);
+  margin-bottom: 1.25rem;
+}
+
+.review-author { display: flex; align-items: center; gap: 0.75rem; }
+
+.author-init {
+  width: 2.25rem; height: 2.25rem; border-radius: 50%;
+  background: var(--terracotta-pale);
+  border: 1px solid var(--border-warm);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--terracotta);
+}
+
+.author-name { font-size: 0.8rem; font-weight: 400; color: var(--ink); }
+.author-via { font-size: 0.68rem; color: var(--ink-soft); }
+
+/* INSTAGRAM STRIP */
+.insta { padding: 4.5rem 4rem; background: var(--bg-dark); }
+
+.insta-header { text-align: center; margin-bottom: 2.5rem; }
+
+.insta-handle {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.5rem;
+  color: var(--terracotta-light);
+  margin-bottom: 0.5rem;
+}
+
+.insta-sub { font-size: 0.8rem; color: rgba(251,248,244,0.4); }
+
+.insta-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.75rem;
+}
+
+.insta-tile {
+  aspect-ratio: 1;
+  border-radius: 6px;
+  overflow: hidden;
+  background: rgba(196,98,58,0.15);
+  position: relative;
+}
+
+.insta-tile img { width: 100%; height: 100%; object-fit: cover; filter: sepia(12%); display: block; }
+
+.insta-tile-overlay {
+  position: absolute; inset: 0;
+  background: rgba(43,35,25,0.0);
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.25s;
+}
+
+.insta-tile:hover .insta-tile-overlay { background: rgba(196,98,58,0.35); }
+
+/* NEWSLETTER */
+.newsletter {
+  padding: 5rem 4rem;
+  background: var(--terracotta-pale);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 4rem;
+}
+
+.nl-left {}
+.nl-eyebrow { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 0.75rem; }
+.nl-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.9rem;
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+}
+.nl-title em { font-style: italic; }
+.nl-body { font-size: 0.85rem; line-height: 1.8; color: var(--ink-mid); }
+
+.nl-perks { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1.25rem; }
+.nl-perk { display: flex; align-items: center; gap: 0.6rem; font-size: 0.78rem; color: var(--ink-mid); }
+.nl-perk-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--terracotta); flex-shrink: 0; }
+
+.nl-right {}
+.nl-form { display: flex; flex-direction: column; gap: 0.75rem; }
+
+.nl-input {
+  background: var(--bg-warm);
+  border: 1px solid var(--border);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 300;
+  padding: 0.85rem 1.1rem;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+.nl-input::placeholder { color: var(--ink-soft); }
+.nl-input:focus { border-color: var(--terracotta); }
+
+.nl-btn {
+  background: var(--ink);
+  color: var(--bg-warm);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  padding: 0.9rem;
+  border: none; cursor: pointer; border-radius: 4px;
+  transition: background 0.2s;
+}
+.nl-btn:hover { background: var(--terracotta); }
+.nl-disclaimer { font-size: 0.68rem; color: var(--ink-soft); text-align: center; }
+
+/* FOOTER */
+footer {
+  background: var(--bg-dark);
+  padding: 3.5rem 4rem 2rem;
+  border-top: 1px solid rgba(196,98,58,0.15);
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--bg-warm);
+  margin-bottom: 0.25rem;
+}
+.footer-brand-name span { color: var(--terracotta-light); }
+
+.footer-tagline {
+  font-size: 0.75rem;
+  line-height: 1.75;
+  color: rgba(251,248,244,0.38);
+  margin-bottom: 1.5rem;
+  max-width: 16rem;
+}
+
+.footer-social { display: flex; gap: 0.6rem; }
+.social-btn {
+  width: 2rem; height: 2rem;
+  border: 1px solid rgba(196,98,58,0.3);
+  border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem;
+  color: var(--terracotta-light);
+  text-decoration: none;
+  transition: border-color 0.2s;
+}
+.social-btn:hover { border-color: var(--terracotta); }
+
+.footer-col h4 {
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--terracotta-light);
+  opacity: 0.7;
+  margin-bottom: 1.25rem;
+  font-weight: 400;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+.footer-col ul a {
+  font-size: 0.78rem;
+  color: rgba(251,248,244,0.38);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-col ul a:hover { color: var(--terracotta-light); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(196,98,58,0.12);
+  padding-top: 1.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.footer-copy { font-size: 0.68rem; color: rgba(251,248,244,0.22); }
+.footer-heart { color: var(--terracotta); }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up { opacity: 0; animation: fadeUp 0.8s cubic-bezier(0.22,1,0.36,1) forwards; }
+.d1 { animation-delay: 0.1s; } .d2 { animation-delay: 0.22s; } .d3 { animation-delay: 0.34s; } .d4 { animation-delay: 0.46s; }
+
+@media (max-width: 860px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { height: 55vw; }
+  .hero-left { padding: 2.5rem 1.5rem; }
+  .founder-strip { grid-template-columns: 1fr; padding: 2.5rem 1.5rem; gap: 1.5rem; }
+  .process { padding: 4rem 1.5rem; }
+  .process-steps { grid-template-columns: 1fr 1fr; }
+  .shop, .reviews, .bts, .insta { padding: 4rem 1.5rem; }
+  .products-grid { grid-template-columns: 1fr 1fr; }
+  .bts-grid { grid-template-columns: 1fr; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .insta-grid { grid-template-columns: repeat(3, 1fr); }
+  .newsletter { grid-template-columns: 1fr; padding: 3.5rem 1.5rem; gap: 2rem; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+  footer { padding: 3rem 1.5rem 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <a href="#" class="nav-logo">Mara <span>&</span> Co.</a>
+    <ul class="nav-links">
+      <li><a href="#">Shop</a></li>
+      <li><a href="#">Collections</a></li>
+      <li><a href="#">Custom Orders</a></li>
+      <li><a href="#">My Story</a></li>
+    </ul>
+  </div>
+  <div class="nav-right">
+    <span class="nav-badge">&#10003; Ships in 3–5 days</span>
+    <button class="nav-icon" aria-label="Search">&#128269;</button>
+    <button class="nav-icon" aria-label="Cart">&#128717;</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <span class="founder-note fade-up"><span class="founder-dot"></span> Made by hand, one piece at a time</span>
+    <h1 class="fade-up d1">Jewellery with a<br>story <em>behind it.</em></h1>
+    <p class="hero-desc fade-up d2">Hi, I'm Mara. I make every piece myself from my studio in Singapore — sterling silver, raw gemstones, and a lot of heart. No factories, no middlemen.</p>
+    <p class="hero-sig fade-up d2">— Mara Lim, founder</p>
+    <div class="hero-actions fade-up d3">
+      <a href="#" class="btn-main">Shop the collection</a>
+      <a href="#" class="btn-outline">Watch me make one</a>
+    </div>
+    <div class="hero-trust fade-up d4">
+      <span class="trust-item"><span class="trust-icon">&#10003;</span> Sterling silver</span>
+      <span class="trust-item"><span class="trust-icon">&#10003;</span> Ethically sourced</span>
+      <span class="trust-item"><span class="trust-icon">&#10003;</span> Custom sizing</span>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://placehold.co/800x900/c4623a/a04e2a?text=." alt="Mara at her workbench" />
+    <div class="hero-sticker">
+      <div class="sticker-stars">★★★★★</div>
+      <div class="sticker-text">"Wore it every day for a year"</div>
+      <div class="sticker-sub">— Priya S., verified buyer</div>
+    </div>
+    <div class="hero-snap">
+      <div class="snap-num">800+</div>
+      <div class="snap-label">Happy customers</div>
+    </div>
+  </div>
+</section>
+
+<div class="founder-strip">
+  <div class="founder-photo">M</div>
+  <div class="founder-text">
+    <p class="founder-label">From the maker</p>
+    <p class="founder-quote">"I started Mara & Co. in 2020 with a torch, some silver wire, and zero business experience. Every piece I sell still goes through my hands. That part will never change."</p>
+    <p class="founder-name">— Mara Lim, Singapore</p>
+  </div>
+  <a href="#" class="founder-strip-cta">Read my full story</a>
+</div>
+
+<section class="process">
+  <div class="section-eyebrow">How it's made</div>
+  <h2 class="section-title">From <em>raw metal</em> to your door</h2>
+  <p class="section-sub">No batch production. Every order is made fresh, so you're never getting something that's been sitting in a warehouse.</p>
+  <div class="process-steps">
+    <div class="process-step">
+      <div class="step-num">01</div>
+      <div class="step-icon">&#9998;</div>
+      <div class="step-title">You place your order</div>
+      <div class="step-desc">Choose your piece, metal, and size. Leave a note if you want something custom.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">02</div>
+      <div class="step-icon">&#128293;</div>
+      <div class="step-title">I start making it</div>
+      <div class="step-desc">I cut, shape, solder, and polish each piece by hand in my home studio.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">03</div>
+      <div class="step-icon">&#128142;</div>
+      <div class="step-title">Quality check</div>
+      <div class="step-desc">I wear-test each piece myself before it leaves. If I wouldn't wear it, I redo it.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">04</div>
+      <div class="step-icon">&#128230;</div>
+      <div class="step-title">Packed with care</div>
+      <div class="step-desc">Each order is hand-packed with tissue paper, a handwritten note, and care instructions.</div>
+    </div>
+  </div>
+</section>
+
+<section class="shop">
+  <div class="shop-header">
+    <div>
+      <div class="section-eyebrow">The shop</div>
+      <h2 class="section-title">Current <em>favourites</em></h2>
+    </div>
+    <a href="#" class="btn-outline">See everything</a>
+  </div>
+  <div class="filter-pills" style="margin-bottom: 2rem;">
+    <button class="pill active">All</button>
+    <button class="pill">Rings</button>
+    <button class="pill">Necklaces</button>
+    <button class="pill">Earrings</button>
+    <button class="pill">Bracelets</button>
+    <button class="pill">Custom</button>
+  </div>
+  <div class="products-grid">
+
+    <div class="product-card">
+      <div class="product-img">
+        <img src="https://placehold.co/400x440/e8d5c8/8b4a2a?text=." alt="Pebble Ring" />
+        <span class="product-badge badge-love">Best seller</span>
+        <button class="product-wish" aria-label="Wishlist">&#9825;</button>
+      </div>
+      <p class="product-handmade">Sterling silver · Ring</p>
+      <h3 class="product-name">The Pebble Ring</h3>
+      <p class="product-desc">Organic, smooth, and satisfyingly chunky. Inspired by river stones found on a trip to Hokkaido.</p>
+      <div class="product-footer">
+        <span class="product-price">SGD 68</span>
+        <button class="product-add">Add to cart</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img">
+        <img src="https://placehold.co/400x440/ddd0c4/7a4a28?text=." alt="Tide Necklace" />
+        <span class="product-badge badge-new">New</span>
+        <button class="product-wish" aria-label="Wishlist">&#9825;</button>
+      </div>
+      <p class="product-handmade">Sterling silver · Necklace</p>
+      <h3 class="product-name">Tide Pendant</h3>
+      <p class="product-desc">A crescent shape that catches the light differently at every angle. 45cm chain included.</p>
+      <div class="product-footer">
+        <span class="product-price">SGD 92</span>
+        <button class="product-add">Add to cart</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img">
+        <img src="https://placehold.co/400x440/e0c8ba/6b3e22?text=." alt="Moss Studs" />
+        <button class="product-wish" aria-label="Wishlist">&#9825;</button>
+      </div>
+      <p class="product-handmade">Sterling silver + tourmaline · Earrings</p>
+      <h3 class="product-name">Moss Studs</h3>
+      <p class="product-desc">Green tourmaline chips set in a raw bezel. No two pairs look exactly the same.</p>
+      <div class="product-footer">
+        <span class="product-price">SGD 55</span>
+        <button class="product-add">Add to cart</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img">
+        <img src="https://placehold.co/400x440/d8c8b8/634028?text=." alt="Stack Ring Set" />
+        <span class="product-badge badge-love">Fan favourite</span>
+        <button class="product-wish" aria-label="Wishlist">&#9825;</button>
+      </div>
+      <p class="product-handmade">Sterling silver · Ring set</p>
+      <h3 class="product-name">The Stacker Set</h3>
+      <p class="product-desc">Three thin bands — one hammered, one smooth, one twisted — designed to wear together or apart.</p>
+      <div class="product-footer">
+        <span class="product-price">SGD 110</span>
+        <button class="product-add">Add to cart</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img">
+        <img src="https://placehold.co/400x440/cfc0b0/5a3820?text=." alt="Lava Bracelet" />
+        <button class="product-wish" aria-label="Wishlist">&#9825;</button>
+      </div>
+      <p class="product-handmade">Sterling silver · Bracelet</p>
+      <h3 class="product-name">Lava Cuff</h3>
+      <p class="product-desc">A thick open cuff with a textured surface made by pressing real tree bark into the metal.</p>
+      <div class="product-footer">
+        <span class="product-price">SGD 135</span>
+        <button class="product-add">Add to cart</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img" style="background: #2B2319; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 0.75rem;">
+        <div style="font-size: 2rem; color: var(--terracotta-light);">&#9998;</div>
+        <div style="font-size: 0.78rem; color: rgba(251,248,244,0.55); text-align: center; padding: 0 1.5rem; line-height: 1.6;">Have something specific in mind?</div>
+      </div>
+      <p class="product-handmade">Fully custom</p>
+      <h3 class="product-name">Custom Order</h3>
+      <p class="product-desc">Send me a DM or fill out the form. I love making pieces for special occasions.</p>
+      <div class="product-footer">
+        <span class="product-price">From SGD 80</span>
+        <button class="product-add">Get in touch</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="bts">
+  <div class="bts-grid">
+    <div>
+      <div class="bts-photos">
+        <div class="bts-photo" style="aspect-ratio: 2/1;">
+          <img src="https://placehold.co/700x350/c4623a/a04428?text=." alt="Studio workbench" style="height: 100%;" />
+        </div>
+        <div class="bts-photo" style="aspect-ratio: 1;">
+          <img src="https://placehold.co/350x350/bfaa95/6b4228?text=." alt="Tools laid out" style="height: 100%;" />
+        </div>
+        <div class="bts-photo" style="aspect-ratio: 1;">
+          <img src="https://placehold.co/350x350/d4bfaa/7a5238?text=." alt="Finished pieces" style="height: 100%;" />
+        </div>
+      </div>
+      <p class="bts-caption">My studio, somewhere in Tiong Bahru &#128521;</p>
+    </div>
+    <div class="bts-content">
+      <div class="section-eyebrow">Behind the scenes</div>
+      <h2 class="section-title">Why I do it <em>this way</em></h2>
+      <p class="section-sub">I could outsource production and scale up. I choose not to — and here's why.</p>
+      <div class="values-list">
+        <div class="value-item">
+          <div class="value-icon">&#129504;</div>
+          <div>
+            <div class="value-title">Every piece carries intention</div>
+            <div class="value-desc">When you make something with your hands, you can't rush it. That slowness becomes quality.</div>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">&#127758;</div>
+          <div>
+            <div class="value-title">I know exactly what's in your jewellery</div>
+            <div class="value-desc">Recycled sterling silver and ethically sourced stones — no mystery metals.</div>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">&#129309;</div>
+          <div>
+            <div class="value-title">You're buying from a real person</div>
+            <div class="value-desc">Message me anytime. I reply myself, and I remember the pieces I've made for you.</div>
+          </div>
+        </div>
+      </div>
+      <a href="#" class="btn-main">See how it's made</a>
+    </div>
+  </div>
+</section>
+
+<section class="reviews">
+  <div class="reviews-intro">
+    <div>
+      <div class="section-eyebrow">What people say</div>
+      <h2 class="section-title">Real words, <em>real people</em></h2>
+    </div>
+    <a href="#" class="btn-outline">All 248 reviews</a>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Ordered the Pebble Ring for my birthday. It arrived with the sweetest handwritten note. I've gotten more compliments on this than anything I've bought from a big brand."</p>
+      <div class="review-author">
+        <div class="author-init">SY</div>
+        <div>
+          <p class="author-name">Sarah Y.</p>
+          <p class="author-via">Verified · via Shopify</p>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"I messaged Mara about a custom necklace with my grandmother's birthstone. She guided me through the whole thing patiently. The result was better than I imagined."</p>
+      <div class="review-author">
+        <div class="author-init">AP</div>
+        <div>
+          <p class="author-name">Aditi P.</p>
+          <p class="author-via">Verified · via Instagram</p>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Bought the Stacker Set as a gift. My friend cried when she opened it. The packaging alone felt special. Will be back for myself next time."</p>
+      <div class="review-author">
+        <div class="author-init">JL</div>
+        <div>
+          <p class="author-name">Jamie L.</p>
+          <p class="author-via">Verified · via Shopify</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="insta">
+  <div class="insta-header">
+    <p class="insta-handle">@maraandco.sg</p>
+    <p class="insta-sub">Follow along for behind-the-scenes, new drops, and the occasional studio mess</p>
+  </div>
+  <div class="insta-grid">
+    <div class="insta-tile"><img src="https://placehold.co/200x200/c4623a/a04428?text=." alt="" /><div class="insta-tile-overlay"></div></div>
+    <div class="insta-tile"><img src="https://placehold.co/200x200/bfaa95/6b4228?text=." alt="" /><div class="insta-tile-overlay"></div></div>
+    <div class="insta-tile"><img src="https://placehold.co/200x200/d4bfaa/7a5238?text=." alt="" /><div class="insta-tile-overlay"></div></div>
+    <div class="insta-tile"><img src="https://placehold.co/200x200/c8ad98/6b3e22?text=." alt="" /><div class="insta-tile-overlay"></div></div>
+    <div class="insta-tile"><img src="https://placehold.co/200x200/b89c85/5a3420?text=." alt="" /><div class="insta-tile-overlay"></div></div>
+  </div>
+</section>
+
+<section class="newsletter">
+  <div class="nl-left">
+    <p class="nl-eyebrow">Stay in the loop</p>
+    <h2 class="nl-title">New drops, <em>first dibs.</em></h2>
+    <p class="nl-body">I send one email a month — new pieces, restocks, and occasional behind-the-scenes. No spam, ever. I genuinely hate it too.</p>
+    <div class="nl-perks">
+      <div class="nl-perk"><span class="nl-perk-dot"></span> Early access to new collections</div>
+      <div class="nl-perk"><span class="nl-perk-dot"></span> 10% off your first order</div>
+      <div class="nl-perk"><span class="nl-perk-dot"></span> A peek into the studio</div>
+    </div>
+  </div>
+  <div class="nl-right">
+    <div class="nl-form">
+      <input type="text" class="nl-input" placeholder="Your first name" />
+      <input type="email" class="nl-input" placeholder="Your email address" />
+      <button class="nl-btn">Yes, sign me up</button>
+      <p class="nl-disclaimer">No spam. Unsubscribe anytime. I mean it.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name">Mara <span>&</span> Co.</div>
+      <p class="footer-tagline">Handmade jewellery from a one-woman studio in Singapore. Every piece made with care, sold with honesty.</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn" aria-label="Instagram">IG</a>
+        <a href="#" class="social-btn" aria-label="TikTok">TK</a>
+        <a href="#" class="social-btn" aria-label="Pinterest">PI</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="#">All Pieces</a></li>
+        <li><a href="#">Rings</a></li>
+        <li><a href="#">Necklaces</a></li>
+        <li><a href="#">Earrings</a></li>
+        <li><a href="#">Custom Orders</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>About</h4>
+      <ul>
+        <li><a href="#">My Story</a></li>
+        <li><a href="#">How I Make Things</a></li>
+        <li><a href="#">Sustainability</a></li>
+        <li><a href="#">Press</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Help</h4>
+      <ul>
+        <li><a href="#">Sizing Guide</a></li>
+        <li><a href="#">Shipping Info</a></li>
+        <li><a href="#">Returns</a></li>
+        <li><a href="#">Care Guide</a></li>
+        <li><a href="#">Contact Mara</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 Mara & Co. Made with <span class="footer-heart">&#9829;</span> in Singapore.</p>
+    <p class="footer-copy">Privacy Policy · Terms</p>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.pill').forEach(pill => {
+  pill.addEventListener('click', () => {
+    document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
